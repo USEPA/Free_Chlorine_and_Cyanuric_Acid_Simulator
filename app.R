@@ -1,6 +1,6 @@
 #Required libraries
 library(ggplot2)
-library(gridExtra)
+library(cowplot)
 library(nleqslv)
 library(plyr)
 library(reshape2)
@@ -471,7 +471,7 @@ plot_sim <- function(sim, y_axis_range, y_axis_range_mg_L) {
   }
 
   # Return plots
-  plot <- grid.arrange(plot1, plot2, plot3, ncol=1)
+  plot <- plot_grid(plot1, plot2, plot3, ncol=1)
 
   return(plot)
 }
@@ -509,7 +509,7 @@ server <- function(input, output, session) {
   simA <- reactive({
     #Take a dependency on input$simupdate
     if(input$simupdateA == 0) return(NULL)
-
+    
     #Isolate simulation run only on input$simupdate button selection
     isolate(do.call(simulate_speciation, sim_Params("A")))
   })
@@ -522,23 +522,27 @@ server <- function(input, output, session) {
     isolate(do.call(simulate_speciation, sim_Params("B")))
   })
 
+  
+  
   # Produce desired reactive plots
   output$A <- renderPlot({
     #Take a dependency on input$plotupdate and input$simupdate
     if(input$simupdateA == 0) return(NULL)
     input$plotupdateA
-
+    
+    sim_a <- simA()
     #Isolate plot to update only on input$plotupdate and input$simupdate selection
-    isolate(plot_sim(simA(),input$A_y_axis_range, input$A_y_axis_range_mg_L))
+    isolate(plot_sim(sim_a,input$A_y_axis_range, input$A_y_axis_range_mg_L))
   })
 
   output$B <- renderPlot({
     #Take a dependency on input$plotupdate and input$simupdate
     if(input$simupdateB == 0) return(NULL)
     input$plotupdateB
-
+    
+    sim_b <- simB()
     #Isolate plot to update only on input$plotupdate and input$simupdate selection
-    isolate(plot_sim(simB(),input$B_y_axis_range, input$B_y_axis_range_mg_L))
+    isolate(plot_sim(sim_b, input$B_y_axis_range, input$B_y_axis_range_mg_L))
   })
 
   # Expression that gets data to be downloaded at User's request
