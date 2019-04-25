@@ -471,6 +471,8 @@ plot_sim <- function(sim, y_axis_range, y_axis_range_mg_L) {
   }
 
   # Return plots
+  
+  theme_set(theme_cowplot(font_size = 12))
   plot <- plot_grid(plot1, plot2, plot3, ncol=1)
 
   return(plot)
