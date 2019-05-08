@@ -1,0 +1,6 @@
+---
+applications:
+- name: cyan
+  memory: 4G
+  env:
+    CF_STAGING_TIMEOUT: 25
