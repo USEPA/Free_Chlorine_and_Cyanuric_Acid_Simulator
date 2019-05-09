@@ -1,6 +1,6 @@
----
 packages:
-  - packages:
+  - cran_mirror: https://cran.rstudio.com/
+    packages:
       - name: cowplot
       - name: ggplot2
       - name: nleqslv

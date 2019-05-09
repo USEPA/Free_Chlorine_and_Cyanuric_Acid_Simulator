@@ -1,8 +1,4 @@
 ---
 applications:
 - name: cyan
-  buildpacks: 
-  - https://github.com/cloudfoundry/r-buildpack.git
   memory: 4G
-  env:
-    CF_STAGING_TIMEOUT: 25
