@@ -1,5 +1,6 @@
 packages:
-  - cran_mirror: https://cran.rstudio.com/
+  - cran_mirror: https://cloud.r-project.org
+    num_threads: 4
     packages:
       - name: cowplot
       - name: ggplot2
