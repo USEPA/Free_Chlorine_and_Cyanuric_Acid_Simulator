@@ -2,5 +2,3 @@
 applications:
 - name: cyan
   memory: 3G
-  routes:
-  - route: shiny.epa.gov/fccas
