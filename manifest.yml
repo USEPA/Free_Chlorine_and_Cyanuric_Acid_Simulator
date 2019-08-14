@@ -1,4 +1,4 @@
 ---
 applications:
 - name: cyan
-  memory: 3G
+  memory: 768M
