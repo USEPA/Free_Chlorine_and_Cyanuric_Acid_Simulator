@@ -1,6 +1,6 @@
 ---
 applications:
-- name: cyan
+- name: fccas
   memory: 750M
   instances: 3
   routes:
