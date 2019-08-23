@@ -1,4 +1,7 @@
 ---
 applications:
 - name: cyan
-  memory: 768M
+  memory: 750M
+  instances: 3
+  routes:
+  - route: fccas.apps.internal
