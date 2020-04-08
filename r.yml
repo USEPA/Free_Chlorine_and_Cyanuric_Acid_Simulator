@@ -6,5 +6,6 @@ packages:
       - name: nleqslv
       - name: plyr
       - name: reshape2
+      - name: shiny
       - name: shinyBS
       - name: shinythemes
