@@ -1,7 +1,0 @@
----
-applications:
-- name: fccas
-  memory: 750M
-  instances: 3
-  routes:
-  - route: fccas.apps.internal
